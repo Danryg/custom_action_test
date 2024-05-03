@@ -29212,6 +29212,14 @@ module.exports = require("buffer");
 
 /***/ }),
 
+/***/ 2081:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("child_process");
+
+/***/ }),
+
 /***/ 6206:
 /***/ ((module) => {
 
@@ -31089,7 +31097,7 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(6964);
 const github = __nccwpck_require__(8033);
 const fs = __nccwpck_require__(7561);
-
+var exec = __nccwpck_require__(2081);
 
 
 async function run() {

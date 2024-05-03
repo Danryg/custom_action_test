@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const fs = require('node:fs');
-
+var exec = require('child_process');
 
 
 async function run() {
