@@ -1,13 +1,13 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Prints the input to a file'
+description: 'This will print the input to a file'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  body:  # id of input
+    description: 'what to write to the file'
     required: true
     default: 'World'
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  out: # id of output
+    description: 'The output file name'
 runs:
   using: 'node20'
-  main: 'index.js'
+  main: 'dist/index.js'
