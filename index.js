@@ -13,6 +13,10 @@ async function run() {
     //write the body to a file
     fs.writeFileSync("body.txt", body);
     //run the git commands to commit and push the file
+    await exec.exec("git add body.txt");
+    await exec.exec('git commit -m "Add body.txt"');
+    await exec.exec("git push");
+    //set the output
     core.setOutput("out", body);
 
     // Get the JSON webhook payload for the event that triggered the workflow
