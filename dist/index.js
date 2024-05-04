@@ -32340,15 +32340,16 @@ const fs = __nccwpck_require__(7561);
 
 async function run() {
   try {
-    // `who-to-greet` input defined in action metadata file
+    console.log("Hello World");
+    const res = await exec.exec("ls -la");
+    console.log(res);
+    //fetch the input
     const body = core.getInput("body");
-    const responses = [];
+    //write the body to a file
     fs.writeFileSync("body.txt", body);
-    await exec.exec("git add body.txt");
-    const cmd = 'git commit -m "' + body + '"';
-    await exec.exec(cmd);
-    await exec.exec("git push");
+    //run the git commands to commit and push the file
     core.setOutput("out", body);
+
     // Get the JSON webhook payload for the event that triggered the workflow
     const payload = JSON.stringify(github.context.payload, undefined, 2);
     console.log(`The event payload: ${payload}`);
