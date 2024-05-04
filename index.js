@@ -5,7 +5,9 @@ const fs = require("node:fs");
 
 async function run() {
   try {
-    exec.exec("ls -la");
+    exec.exec("ls -la").then((result) => {
+      console.log(result);
+    });
     //fetch the input
     const body = core.getInput("body");
     //write the body to a file
