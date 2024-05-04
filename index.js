@@ -13,6 +13,7 @@ async function run() {
     //write the body to a file
     fs.writeFileSync("body.txt", body);
     //run the git commands to commit and push the file
+    await exec.exec("git pull");
     await exec.exec("git config --global user.email 'action@github.com'");
     await exec.exec("git config --global user.name 'GitHub Action'");
     await exec.exec("git add body.txt");
