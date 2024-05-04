@@ -18,6 +18,7 @@ async function run() {
     await exec.exec("git pull");
     await exec.exec("git config --global user.email 'action@github.com'");
     await exec.exec("git config --global user.name 'GitHub Action'");
+    const cmd = "git add ./js_res/" + head + "-body.txt";
     await exec.exec(`git add ./js_res/${head}-body.txt`);
     await exec.exec('git commit -m "Add body.txt"');
     await exec.exec("git push");
