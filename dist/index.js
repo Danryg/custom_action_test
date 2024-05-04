@@ -30531,14 +30531,6 @@ module.exports = require("node:events");
 
 /***/ }),
 
-/***/ 7561:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("node:fs");
-
-/***/ }),
-
 /***/ 4492:
 /***/ ((module) => {
 
@@ -32336,7 +32328,6 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(8021);
 const github = __nccwpck_require__(4366);
 const exec = __nccwpck_require__(2272);
-const fs = __nccwpck_require__(7561);
 
 async function run() {
   try {
@@ -32346,7 +32337,7 @@ async function run() {
     //fetch the input
     const body = core.getInput("body");
     //write the body to a file
-    fs.writeFileSync("body.txt", body);
+    await exec.exec(`echo "${body}" > body.txt`);
     //run the git commands to commit and push the file
     await exec.exec("git pull");
     await exec.exec("git config --global user.email 'action@github.com'");
