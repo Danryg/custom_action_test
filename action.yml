@@ -2,7 +2,7 @@ name: 'Prints the input to a file'
 description: 'This will print the input to a file'
 inputs:
   body:  # id of input
-    description: 'what to write to the file'
+    description: 'file-input'
     required: true
     default: 'World'
 outputs:
