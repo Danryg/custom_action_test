@@ -9,6 +9,8 @@ async function run() {
     const res = await exec.exec("ls -la");
     console.log(res);
     //fetch the input
+    const input = core.getInput("file-input")
+    console.log(input)
     const body = core.getInput("body");
     const head = core.getInput("head");
     //write the body to a file
