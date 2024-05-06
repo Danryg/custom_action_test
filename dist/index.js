@@ -32348,15 +32348,17 @@ async function run() {
     console.log(input)
     const body = core.getInput("body");
     const head = core.getInput("head");
+    console.log("head:" + head)
+    console.log("body: " + body)
     //write the body to a file
-    fs.writeFileSync(`./js_res/${head}-body.txt`, body);
+    fs.writeFileSync(`${head}-body.txt`, body);
     //run the git commands to commit and push the file
     await exec.exec("ls -la");
     await exec.exec("git pull");
     await exec.exec("git config --global user.email 'action@github.com'");
     await exec.exec("git config --global user.name 'GitHub Action'");
     const cmd = "git add ./js_res/" + head + "-body.txt";
-    await exec.exec(`git add ./js_res/${head}-body.txt`);
+    await exec.exec(`git add ${head}-body.txt`);
     await exec.exec('git commit -m "Add body.txt"');
     await exec.exec("git push");
     //set the output
